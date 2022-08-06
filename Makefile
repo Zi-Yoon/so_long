@@ -6,7 +6,7 @@
 #    By: byan <byan@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 22:53:06 by byan              #+#    #+#              #
-#    Updated: 2022/08/06 18:14:23 by byan             ###   ########seoul.kr   #
+#    Updated: 2022/08/07 05:25:52 by byan             ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ FLAGS		= -Wall -Wextra -Werror
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS)
+		make all -C mlx/
 		make all -C $(LIBFT)/
 		gcc -o $(NAME) $(OBJS) -Llibft -lft -L./mlx -lmlx -framework OpenGL -framework AppKit
 
@@ -39,6 +40,7 @@ $(NAME)		:	$(OBJS)
 clean		:
 		rm -f $(OBJS)
 		make clean -C $(LIBFT)
+		make clean -C mlx
 
 fclean		:	clean
 		rm -f $(NAME)
