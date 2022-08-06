@@ -1,0 +1,14 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/mingzi/Desktop/mingzi_dev/42_Seoul_inner_circle/so_long'
+arch -x86_64 gcc -Wall -Wextra -Werror -c -g so_long.c -I./ -o so_long.o
+ 
+arch -x86_64 gcc -Wall -Wextra -Werror -c -g image.c -I./ -o image.o
+arch -x86_64 gcc -Wall -Wextra -Werror -c -g key.c -I./ -o key.o
+arch -x86_64 gcc -Wall -Wextra -Werror -c -g map.c -I./ -o map.o
+arch -x86_64 gcc -Wall -Wextra -Werror -c -g utils.c -I./ -o utils.o
+arch -x86_64 gcc -Wall -Wextra -Werror -c -g gnl/get_next_line.c -I./ -o gnl/get_next_line.o
+arch -x86_64 gcc -Wall -Wextra -Werror -c -g gnl/get_next_line_utils.c -I./ -o gnl/get_next_line_utils.o
+make all -C libft/
+arch -x86_64 gcc -o so_long so_long.o image.o key.o map.o utils.o gnl/get_next_line.o gnl/get_next_line_utils.o -fsanitize=address -Llibft -lft -L./mlx -lmlx -framework OpenGL -framework AppKit
+make: Leaving directory `/Users/mingzi/Desktop/mingzi_dev/42_Seoul_inner_circle/so_long'
+ 
