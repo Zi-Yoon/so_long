@@ -6,7 +6,7 @@
 /*   By: byan <byan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 13:33:40 by byan              #+#    #+#             */
-/*   Updated: 2022/07/24 02:15:24 by byan             ###   ########seoul.kr  */
+/*   Updated: 2022/08/08 13:14:25 by byan             ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ void	map_check_elements(t_game *game)
 		else if (game->str_line[i] == 'C')
 			game->all_col++;
 	}
-	if (e_cnt == 0)
-		print_err("Map : No exit\n");
+	if (e_cnt != 1)
+		print_err("Map : Exit error\n");
 	if (game->all_col == 0)
-		print_err("Map : No keys to collect\n");
+		print_err("Map : No coffee to collect\n");
 	if (p_cnt != 1)
-		print_err("Map : No starting position\n");
+		print_err("Map : Starting position error\n");
 }
 
 void	map_check_wrong(t_game *game)
@@ -97,10 +97,10 @@ void	map_check_wrong(t_game *game)
 	i = 0;
 	while (i++ < ft_strlen(game->str_line))
 	{
-		if (game->str_line[i] != 'E' && game->str_line[i] != 'P' &&
-			game->str_line[i] != 'C' && game->str_line[i] != '0' &&
-			game->str_line[i] != '1' && game->str_line[i] != '\n' &&
-			game->str_line[i] != '\0')
+		if (game->str_line[i] != 'E' && game->str_line[i] != 'P'
+			&& game->str_line[i] != 'C' && game->str_line[i] != '0'
+			&& game->str_line[i] != '1' && game->str_line[i] != '\n'
+			&& game->str_line[i] != '\0')
 			print_err("Map : Wrong element\n");
 	}
 }
