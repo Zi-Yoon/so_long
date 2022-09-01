@@ -1,1 +1,2 @@
-100/100
+# so_long
+## make little flag game
